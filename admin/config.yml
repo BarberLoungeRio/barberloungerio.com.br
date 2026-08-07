@@ -2,7 +2,7 @@ backend:
   name: github
   repo: barberloungerio/barberloungerio.com.br
   branch: main
-  base_url: https://auth.decapcms.org
+  base_url: https://api.decapcms
   site_id: barberloungerio.com.br
 
 media_folder: "public/images"

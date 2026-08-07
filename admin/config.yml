@@ -3,6 +3,7 @@ backend:
   repo: barberloungerio/barberloungerio.com.br
   branch: main
   base_url: https://auth.decapcms.org
+  site_id: barberloungerio.com.br
 
 media_folder: "public/images"
 public_folder: "images"

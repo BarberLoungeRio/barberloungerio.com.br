@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barber Lounge Rio | Alta Barbearia no Centro do Rio</title>
+<meta name="description" content="Mais que um corte, um conceito. Alta barbearia, Drops TV, Luxury Thrift Store e curadoria de moda de luxo no Centro do Rio de Janeiro.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#000000;
+    --panel:#0d0d0d;
+    --panel-2:#141414;
+    --line:#262626;
+    --gold:#d4af37;
+    --gold-light:#f3e5ab;
+    --ivory:#ffffff;
+    --muted:#a1a1aa;
+    --muted-2:#6b6b70;
+    --wa:#25d366;
+    --maxw:1280px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ivory);
+    font-family:'Inter',sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  ul{list-style:none;}
+  button{font:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+  :focus-visible{outline:2px solid var(--gold-light);outline-offset:3px;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  h1,h2,h3,h4,.display{
+    font-family:'Montserrat',sans-serif;
+    font-weight:800;
+    letter-spacing:0.01em;
+    color:var(--ivory);
+  }
+  .eyebrow{
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--gold-light);
+    display:flex;
+    align-items:center;
+    gap:12px;
+    justify-content:center;
+  }
+  .eyebrow::before{
+    content:"";
+    width:26px;height:1px;
+    background:var(--gold);
+    display:inline-block;
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;
+    z-index:100;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(14px) saturate(140%);
+    -webkit-backdrop-filter:blur(14px) saturate(140%);
+    border-bottom:1px solid rgba(212,175,55,0.2);
+    transition:background .3s ease;
+  }
+  header .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:80px;
+  }
+  .logo{display:flex;align-items:center;gap:12px;}
+  .logo img{height:40px;width:auto;}
+  .logo .logo-type{
+    display:flex;flex-direction:column;line-height:1.15;
+  }
+  .logo .logo-type strong{
+    font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;
+    letter-spacing:0.08em;text-transform:uppercase;color:var(--ivory);
+  }
+  .logo .logo-type span{
+    font-family:'Inter',sans-serif;font-size:9px;letter-spacing:0.24em;
+    text-transform:uppercase;color:var(--gold-light);
+  }
+
+  nav.main-nav{display:flex;align-items:center;gap:40px;}
+  nav.main-nav ul{display:flex;gap:30px;}
+  nav.main-nav a{
+    font-size:12.5px;font-weight:500;letter-spacing:0.04em;
+    color:var(--muted);position:relative;padding:6px 0;
+    transition:color .25s ease;
+  }
+  nav.main-nav a:hover{color:var(--ivory);}
+  nav.main-nav a::after{
+    content:"";position:absolute;left:0;bottom:0;
+    width:0;height:1px;background:var(--gold-light);
+    transition:width .25s ease;
+  }
+  nav.main-nav a:hover::after{width:100%;}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-family:'Montserrat',sans-serif;font-weight:700;font-size:12.5px;
+    letter-spacing:0.08em;text-transform:uppercase;
+    padding:14px 26px;border-radius:4px;white-space:nowrap;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+  }
+  .btn-gold{background-color:var(--gold);color:var(--bg);border:2px solid var(--gold);}
+  .btn-gold:hover{background-color:var(--gold-light);border-color:var(--gold-light);transform:scale(1.05);}
+  .btn-outline{background-color:transparent;color:var(--gold);border:1.5px solid var(--gold);}
+  .btn-outline:hover{background-color:var(--gold);color:var(--bg);transform:translateY(-2px);}
+  .btn-ghost{border:1px solid rgba(255,255,255,0.28);color:var(--ivory);background:transparent;}
+  .btn-ghost:hover{border-color:var(--gold-light);color:var(--gold-light);}
+  .btn-sm{padding:10px 18px;font-size:10.5px;}
+  .btn-block{width:100%;}
+
+  .burger{display:none;width:32px;height:22px;position:relative;flex-direction:column;justify-content:space-between;}
+  .burger span{display:block;height:1px;width:100%;background:var(--ivory);}
+
+  .mobile-nav{
+    position:fixed;inset:0;top:80px;
+    background:rgba(0,0,0,0.98);backdrop-filter:blur(10px);
+    z-index:99;transform:translateX(100%);transition:transform .35s ease;
+    padding:40px 28px;display:flex;flex-direction:column;gap:6px;
+  }
+  .mobile-nav.open{transform:translateX(0);}
+  .mobile-nav a{
+    font-family:'Montserrat',sans-serif;font-weight:700;font-size:20px;
+    padding:16px 0;border-bottom:1px solid var(--line);color:var(--ivory);
+  }
+  .mobile-nav .btn{margin-top:26px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    background:radial-gradient(ellipse at center 30%, #0d0d0d 0%, #000000 70%);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;
+    padding:150px 24px 90px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(rgba(212,175,55,0.35) 1px, transparent 1px);
+    background-size:34px 34px;
+    opacity:0.12;
+    pointer-events:none;
+  }
+  .hero-video-frame{
+    position:relative;
+    width:min(380px, 78vw);
+    aspect-ratio:9/16;
+    border-radius:18px;
+    overflow:hidden;
+    background:#000;
+    border:1px solid rgba(212,175,55,0.5);
+    box-shadow:0 0 0 1px rgba(212,175,55,0.15), 0 30px 90px -20px rgba(0,0,0,0.9), 0 0 70px -10px rgba(212,175,55,0.35);
+    z-index:2;
+    animation:glow 4.5s ease-in-out infinite;
+  }
+  @keyframes glow{
+    0%,100%{box-shadow:0 0 0 1px rgba(212,175,55,0.15), 0 30px 90px -20px rgba(0,0,0,0.9), 0 0 70px -10px rgba(212,175,55,0.35);}
+    50%{box-shadow:0 0 0 1px rgba(212,175,55,0.3), 0 30px 90px -20px rgba(0,0,0,0.9), 0 0 100px -6px rgba(212,175,55,0.55);}
+  }
+  .hero-video-frame video{
+    width:100%;height:100%;object-fit:cover;display:block;
+  }
+  .hero-video-frame::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.65) 100%);
+    pointer-events:none;
+  }
+  .hero-tag{
+    position:relative;z-index:2;
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Montserrat',sans-serif;font-weight:600;font-size:11px;
+    letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-light);
+    border:1px solid rgba(212,175,55,0.4);
+    padding:8px 16px;border-radius:100px;
+    margin-bottom:28px;
+  }
+  .hero-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--wa);box-shadow:0 0 0 3px rgba(37,211,102,0.2);}
+  .hero h1{
+    position:relative;z-index:2;
+    font-size:clamp(30px, 5vw, 52px);
+    line-height:1.15;
+    max-width:760px;
+    margin:36px auto 18px;
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+  }
+  .hero h1 span{color:var(--gold-light);}
+  .hero p.sub{
+    position:relative;z-index:2;
+    font-size:clamp(15px,1.6vw,18px);
+    color:var(--muted);
+    max-width:520px;
+    margin:0 auto 38px;
+  }
+  .hero-ctas{position:relative;z-index:2;display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-bottom:56px;}
+  .hero-meta{
+    position:relative;z-index:2;
+    display:flex;flex-wrap:wrap;justify-content:center;gap:36px;
+    border-top:1px solid rgba(255,255,255,0.12);
+    padding-top:26px;max-width:760px;
+  }
+  .hero-meta div{display:flex;flex-direction:column;align-items:center;gap:4px;}
+  .hero-meta .num{font-family:'Montserrat',sans-serif;font-weight:800;font-size:19px;color:var(--gold-light);}
+  .hero-meta .label{font-size:11px;letter-spacing:0.06em;color:var(--muted-2);text-transform:uppercase;}
+  .scroll-cue{
+    position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    color:var(--muted-2);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+    z-index:2;
+  }
+  .scroll-cue .line{width:1px;height:34px;background:linear-gradient(var(--gold),transparent);animation:scrollcue 1.8s ease-in-out infinite;}
+  @keyframes scrollcue{0%{opacity:0;transform:scaleY(0.4);}50%{opacity:1;transform:scaleY(1);}100%{opacity:0;transform:scaleY(0.4);}}
+
+  /* ---------- SECTION SHARED ---------- */
+  section{position:relative;}
+  .section-pad{padding:110px 0;}
+  .section-head{max-width:660px;margin:0 auto 56px;text-align:center;}
+  .section-head h2{
+    font-size:clamp(28px,3.6vw,42px);margin-top:16px;line-height:1.18;
+    color:var(--gold);text-transform:uppercase;letter-spacing:1px;
+  }
+  .section-head p{color:var(--muted);margin:16px auto 0;font-size:15.5px;max-width:540px;}
+  .section-cta{display:flex;justify-content:center;margin-top:48px;}
+
+  /* ---------- VALORES (breve conceito) ---------- */
+  .values{background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .values .wrap{padding:70px 28px;}
+  .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center;}
+  .value-item .num{
+    font-family:'Montserrat',sans-serif;font-weight:900;font-size:13px;
+    color:var(--gold);letter-spacing:0.2em;margin-bottom:14px;display:block;
+  }
+  .value-item h3{font-size:19px;margin-bottom:10px;}
+  .value-item p{color:var(--muted);font-size:14px;max-width:280px;margin:0 auto;}
+
+  /* ---------- SERVICES (DROPS TV) ---------- */
+  .services{background:var(--panel);}
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+    gap:26px;
+  }
+  .service-card{
+    background:var(--panel-2);border:1px solid var(--line);border-radius:10px;
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .3s ease, border-color .3s ease;
+  }
+  .service-card:hover{transform:translateY(-6px);border-color:rgba(212,175,55,0.55);}
+  .service-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:#000;}
+  .service-media img{width:100%;height:100%;object-fit:cover;opacity:0.88;transition:transform .5s ease;}
+  .service-card:hover .service-media img{transform:scale(1.08);}
+  .service-media .service-tag{
+    position:absolute;top:14px;left:14px;
+    font-family:'Montserrat',sans-serif;font-weight:700;font-size:10px;
+    letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-light);
+    background:rgba(0,0,0,0.6);border:1px solid rgba(212,175,55,0.4);
+    padding:6px 12px;border-radius:100px;backdrop-filter:blur(4px);
+  }
+  .service-play{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.55));
+  }
+  .service-play span{
+    width:50px;height:50px;border-radius:50%;
+    background:rgba(0,0,0,0.5);border:1.5px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--gold-light);font-size:16px;backdrop-filter:blur(4px);
+    transition:transform .3s ease, background .3s ease;
+  }
+  .service-card:hover .service-play span{background:var(--gold);color:#000;transform:scale(1.12);}
+  .service-body{padding:22px 24px;display:flex;flex-direction:column;gap:10px;flex:1;}
+  .service-body h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:16.5px;color:var(--ivory);}
+  .service-body p{font-size:13.3px;color:var(--muted);line-height:1.55;flex:1;}
+  .service-footer{
+    display:flex;justify-content:space-between;align-items:center;
+    margin-top:auto;padding-top:14px;border-top:1px solid var(--line);
+  }
+  .service-price{font-family:'Montserrat',sans-serif;font-weight:800;font-size:18px;color:var(--gold-light);}
+  .services-note{
+    margin-top:40px;text-align:center;font-size:12.5px;color:var(--muted-2);
+    max-width:560px;margin-left:auto;margin-right:auto;
+  }
+
+  /* ---------- THRIFT STORE (carrossel) ---------- */
+  .thrift{background:var(--bg);}
+  .thrift-scroller{
+    display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;
+    padding:10px 4px 30px;
+    scrollbar-width:thin;scrollbar-color:var(--gold) var(--panel);
+  }
+  .thrift-scroller::-webkit-scrollbar{height:6px;}
+  .thrift-scroller::-webkit-scrollbar-thumb{background:var(--gold);border-radius:10px;}
+  .thrift-scroller::-webkit-scrollbar-track{background:var(--panel);}
+
+  .thrift-card{
+    scroll-snap-align:start;
+    flex:0 0 auto;width:280px;
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .3s ease, border-color .3s ease;
+  }
+  .thrift-card:hover{transform:translateY(-6px);border-color:rgba(212,175,55,0.55);}
+  .thrift-media{position:relative;aspect-ratio:4/5;overflow:hidden;background:#000;}
+  .thrift-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+  .thrift-card:hover .thrift-media img{transform:scale(1.06);}
+  .thrift-media.placeholder{
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(150deg, #141210, #050504 70%);
+  }
+  .thrift-media.placeholder .glyph{
+    width:64px;height:64px;border:1.5px solid var(--gold);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--gold-light);font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;
+  }
+  .thrift-brand{
+    position:absolute;top:14px;left:14px;
+    font-family:'Montserrat',sans-serif;font-weight:700;font-size:10px;
+    letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-light);
+    background:rgba(0,0,0,0.6);border:1px solid rgba(212,175,55,0.4);
+    padding:5px 11px;border-radius:100px;
+  }
+  .thrift-body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1;}
+  .thrift-body h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;}
+  .thrift-body p{font-size:12.8px;color:var(--muted);line-height:1.5;flex:1;}
+  .thrift-footer{
+    display:flex;justify-content:space-between;align-items:center;
+    margin-top:10px;padding-top:12px;border-top:1px solid var(--line);
+  }
+  .thrift-price{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12.5px;color:var(--gold-light);text-transform:uppercase;letter-spacing:0.04em;}
+  .thrift-controls{display:flex;justify-content:center;gap:14px;margin-top:8px;}
+  .thrift-controls button{
+    width:42px;height:42px;border-radius:50%;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;color:var(--ivory);font-size:16px;
+    transition:border-color .25s ease, color .25s ease;
+  }
+  .thrift-controls button:hover{border-color:var(--gold-light);color:var(--gold-light);}
+
+  /* ---------- INSTAGRAM FEED ---------- */
+  .instagram{background:var(--panel);}
+  .insta-grid{
+    display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+    gap:6px;
+  }
+  .insta-item{
+    position:relative;aspect-ratio:1/1;overflow:hidden;background:#000;
+  }
+  .insta-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+  .insta-item:hover img{transform:scale(1.1);}
+  .insta-overlay{
+    position:absolute;inset:0;background:rgba(0,0,0,0.55);
+    display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;
+    opacity:0;transition:opacity .3s ease;
+  }
+  .insta-item:hover .insta-overlay{opacity:1;}
+  .insta-overlay svg{width:26px;height:26px;fill:var(--gold-light);}
+  .insta-overlay span{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ivory);}
+
+  /* ---------- REVIEWS ---------- */
+  .reviews{background:var(--bg);}
+  .reviews-top{display:flex;flex-direction:column;align-items:center;text-align:center;gap:30px;margin-bottom:56px;}
+  .rating-card{
+    display:flex;align-items:center;gap:22px;
+    background:var(--panel);border:1px solid var(--line);
+    padding:22px 28px;border-radius:4px;flex-shrink:0;margin:0 auto;
+  }
+  .rating-card .score{font-family:'Montserrat',sans-serif;font-weight:900;font-size:40px;color:var(--gold-light);line-height:1;}
+  .rating-card .details{display:flex;flex-direction:column;gap:6px;}
+  .stars{color:var(--gold-light);font-size:16px;letter-spacing:2px;}
+  .rating-card .count{font-size:12.5px;color:var(--muted);}
+  .google-badge{display:flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.05em;color:var(--muted);}
+  .google-badge svg{width:16px;height:16px;}
+  .reviews-track{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .review-card{
+    background:var(--panel);border:1px solid var(--line);padding:28px 26px;border-radius:4px;
+    display:flex;flex-direction:column;gap:16px;transition:border-color .25s ease,transform .25s ease;
+  }
+  .review-card:hover{border-color:rgba(212,175,55,0.5);transform:translateY(-3px);}
+  .review-head{display:flex;align-items:center;gap:12px;}
+  .review-avatar{
+    width:42px;height:42px;border-radius:50%;
+    background:linear-gradient(135deg,var(--gold-light),var(--gold));
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;color:#171410;flex-shrink:0;
+  }
+  .review-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:var(--ivory);}
+  .review-date{font-size:11.5px;color:var(--muted-2);}
+  .review-card .stars{font-size:14px;}
+  .review-text{font-size:13.8px;color:var(--muted);line-height:1.65;}
+  .review-source{font-size:11px;color:var(--muted-2);display:flex;align-items:center;gap:6px;margin-top:auto;}
+  .reviews-note{margin-top:26px;font-size:12px;color:var(--muted-2);border-top:1px solid var(--line);padding-top:18px;text-align:center;}
+  .reviews-cta{margin-top:36px;display:flex;justify-content:center;}
+
+  /* ---------- CTA BAND ---------- */
+  .cta-band{
+    background:linear-gradient(120deg, #17140f, #0a0a0a 60%);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:80px 0;text-align:center;
+  }
+  .cta-band h2{font-size:clamp(26px,3.4vw,40px);margin-bottom:18px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;}
+  .cta-band p{color:var(--muted);max-width:520px;margin:0 auto 36px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--bg);padding:100px 0 0;}
+  .footer-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:60px;padding-bottom:70px;border-bottom:1px solid var(--line);}
+  .footer-brand .logo{margin-bottom:20px;}
+  .footer-brand p{color:var(--muted);font-size:14px;max-width:300px;margin-bottom:26px;}
+  .footer-socials{display:flex;gap:12px;}
+  .footer-socials a{
+    width:42px;height:42px;border:1px solid var(--line);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--ivory);
+    transition:border-color .25s ease,color .25s ease,transform .25s ease;
+  }
+  .footer-socials a:hover{border-color:var(--gold-light);color:var(--gold-light);transform:translateY(-3px);}
+  .footer-col h5{
+    font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--gold-light);margin-bottom:22px;
+  }
+  .footer-col p, .footer-col a{display:block;color:var(--muted);font-size:14.5px;margin-bottom:12px;}
+  .footer-col a:hover{color:var(--ivory);}
+  .footer-col strong{color:var(--ivory);font-weight:600;}
+  .map-block{
+    margin-top:0;height:340px;border-top:1px solid var(--line);position:relative;
+    filter:grayscale(1) contrast(1.15) brightness(0.7);transition:filter .4s ease;
+  }
+  .map-block:hover{filter:grayscale(0.2) contrast(1.05) brightness(0.85);}
+  .map-block iframe{width:100%;height:100%;border:0;display:block;}
+  .footer-bottom{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+    padding:26px 0;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted-2);
+  }
+  .footer-bottom a{color:var(--muted-2);}
+  .footer-bottom a:hover{color:var(--gold-light);}
+
+  /* WhatsApp floating button */
+  .wa-float{
+    position:fixed;bottom:30px;right:30px;z-index:1000;
+    width:60px;height:60px;border-radius:50%;
+    background-color:var(--wa);display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 15px rgba(0,0,0,0.5);transition:transform 0.3s ease;
+  }
+  .wa-float:hover{transform:scale(1.1);}
+  .wa-float svg{width:28px;height:28px;fill:#fff;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:980px){
+    nav.main-nav ul{gap:20px;}
+    .values-grid{grid-template-columns:1fr;gap:36px;}
+    .footer-top{grid-template-columns:1fr;gap:44px;}
+    .reviews-track{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:840px){
+    nav.main-nav ul{display:none;}
+    .burger{display:flex;}
+    .header-cta-desktop{display:none;}
+  }
+  @media (max-width:600px){
+    .wrap{padding:0 20px;}
+    .section-pad{padding:80px 0;}
+    .hero{padding:130px 20px 70px;}
+    .hero-video-frame{width:min(300px, 82vw);}
+    .hero-ctas{flex-direction:column;align-items:stretch;width:100%;}
+    .hero-ctas .btn{width:100%;}
+    .reviews-track{grid-template-columns:1fr;}
+    .thrift-card{width:230px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;scroll-behavior:auto !important;animation:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="wrap">
+    <a href="#top" class="logo">
+      <img src="https://barberloungerio.lovable.app/__l5e/assets-v1/b7947c7d-fabf-4480-ab24-10be1a227fb7/barber-lounge-logo.png" alt="Barber Lounge Rio">
+      <span class="logo-type"><strong>Barber Lounge</strong><span>Rio · Centro</span></span>
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#top">Início</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#thrift">Thrift Store</a></li>
+        <li><a href="#instagram">Instagram</a></li>
+        <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <a href="https://wa.me/5521980089047" class="btn btn-outline header-cta-desktop">Agendar Horário</a>
+    </nav>
+    <button class="burger" id="burgerBtn" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#top">Início</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#thrift">Thrift Store</a>
+    <a href="#instagram">Instagram</a>
+    <a href="#avaliacoes">Avaliações</a>
+    <a href="#contato">Contato</a>
+    <a href="https://wa.me/5521980089047" class="btn btn-outline">Agendar Horário</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO — LOGO ANIMADA EM DESTAQUE -->
+  <section class="hero">
+    <span class="hero-tag"><span class="dot"></span> Centro do Rio · Seg a Sex, 06:30 às 15:00</span>
+
+    <div class="hero-video-frame">
+      <video autoplay muted loop playsinline preload="auto" aria-label="Logo animada Barber Lounge Rio">
+        <source src="logomp4.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <h1>Mais que um corte, <span>um conceito.</span></h1>
+    <p class="sub">A união da curadoria de estilo com a precisão da alta barbearia. Autenticidade, luxo e atitude em um único lugar, no coração do Centro do Rio.</p>
+
+    <div class="hero-ctas">
+      <a href="https://wa.me/5521980089047" class="btn btn-gold">Agendar Exclusividade</a>
+      <a href="#thrift" class="btn btn-ghost">Explorar Luxury Thrift Store</a>
+    </div>
+
+    <div class="hero-meta">
+      <div><span class="num">4</span><span class="label">Espaços em 1 endereço</span></div>
+      <div><span class="num">4,9 ★</span><span class="label">Avaliação no Google</span></div>
+      <div><span class="num">Centro</span><span class="label">Av. Churchill, RJ</span></div>
+    </div>
+
+    <div class="scroll-cue"><span>Role</span><span class="line"></span></div>
+  </section>
+
+  <!-- BREVE CONCEITO -->
+  <section class="values">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:44px;">
+        <span class="eyebrow">O Conceito</span>
+        <h2>Bem-vindo à experiência Barber Lounge Rio</h2>
+        <p>Cada detalhe foi desenhado para proporcionar relaxamento e estilo — do corte impecável ao cuidado com a barba, tudo com o padrão de excelência que define a alta barbearia.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-item">
+          <span class="num">01</span>
+          <h3>Precisão</h3>
+          <p>Barbeiros especialistas em cortes clássicos e contemporâneos, adaptados ao seu estilo pessoal.</p>
+        </div>
+        <div class="value-item">
+          <span class="num">02</span>
+          <h3>Luxo</h3>
+          <p>Um ambiente sofisticado no coração do Centro do Rio, pensado para o homem exigente.</p>
+        </div>
+        <div class="value-item">
+          <span class="num">03</span>
+          <h3>Atitude</h3>
+          <p>Curadoria de estilo, cuidado e bem-estar reunidos em uma experiência única de alta barbearia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS — DROPS TV (ESCALÁVEL) -->
+  <section class="services section-pad" id="servicos">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Nossos Serviços · Drops TV</span>
+        <h2>Alta barbearia em cada detalhe</h2>
+        <p>Cada serviço com espaço dedicado para vídeo — veja a técnica antes de agendar. Estrutura pronta para crescer: basta duplicar um card para adicionar um novo serviço.</p>
+      </div>
+
+      <!-- Grid escalável: grid-template-columns em auto-fill suporta itens ilimitados sem quebrar o layout -->
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-media">
+            <img src="https://barberloungerio.lovable.app/assets/service-corte-XqhyKym8.jpg" alt="Corte & Acabamento">
+            <span class="service-tag">Corte</span>
+            <div class="service-play"><span>▶</span></div>
+          </div>
+          <div class="service-body">
+            <h4>Corte & Acabamento</h4>
+            <p>Do clássico ao contemporâneo, executamos cortes de precisão com foco no seu estilo pessoal.</p>
+            <div class="service-footer">
+              <span class="service-price">R$ 70</span>
+              <a href="https://wa.me/5521980089047" class="btn btn-outline btn-sm">Agendar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-media">
+            <img src="https://barberloungerio.lovable.app/assets/service-corte-XqhyKym8.jpg" alt="Barba Desenhada">
+            <span class="service-tag">Barba</span>
+            <div class="service-play"><span>▶</span></div>
+          </div>
+          <div class="service-body">
+            <h4>Barba Desenhada</h4>
+            <p>Alinhamento e modelagem completa, com toalha quente e acabamento na navalha.</p>
+            <div class="service-footer">
+              <span class="service-price">R$ 50</span>
+              <a href="https://wa.me/5521980089047" class="btn btn-outline btn-sm">Agendar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-media">
+            <img src="https://barberloungerio.lovable.app/assets/service-corte-XqhyKym8.jpg" alt="Corte + Barba">
+            <span class="service-tag">Combo</span>
+            <div class="service-play"><span>▶</span></div>
+          </div>
+          <div class="service-body">
+            <h4>Corte + Barba</h4>
+            <p>O combo completo para o visual impecável, do topo ao queixo, em um único atendimento.</p>
+            <div class="service-footer">
+              <span class="service-price">R$ 110</span>
+              <a href="https://wa.me/5521980089047" class="btn btn-outline btn-sm">Agendar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-media">
+            <img src="https://barberloungerio.lovable.app/assets/service-ozonio-DDW6C4S0.jpg" alt="Barboterapia com Ozônio">
+            <span class="service-tag">Barboterapia</span>
+            <div class="service-play"><span>▶</span></div>
+          </div>
+          <div class="service-body">
+            <h4>Barboterapia com Ozônio</h4>
+            <p>Tecnologia do vaporizador de ozônio para limpeza profunda, ação bactericida e hidratação intensa.</p>
+            <div class="service-footer">
+              <span class="service-price">R$ 90</span>
+              <a href="https://wa.me/5521980089047" class="btn btn-outline btn-sm">Agendar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-media">
+            <img src="https://barberloungerio.lovable.app/assets/service-lavagem-CtPVlwFO.jpg" alt="Lavagem Terapêutica">
+            <span class="service-tag">Terapia</span>
+            <div class="service-play"><span>▶</span></div>
+          </div>
+          <div class="service-body">
+            <h4>Lavagem Terapêutica</h4>
+            <p>Higienização completa com produtos de alta performance, focada na saúde do couro cabeludo.</p>
+            <div class="service-footer">
+              <span class="service-price">R$ 60</span>
+              <a href="https://wa.me/5521980089047" class="btn btn-outline btn-sm">Agendar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-media">
+            <img src="https://barberloungerio.lovable.app/assets/service-lavagem-CtPVlwFO.jpg" alt="Hidratação Capilar">
+            <span class="service-tag">Cuidado</span>
+            <div class="service-play"><span>▶</span></div>
+          </div>
+          <div class="service-body">
+            <h4>Hidratação Capilar</h4>
+            <p>Reposição de nutrientes e brilho para os fios, com finalização profissional.</p>
+            <div class="service-footer">
+              <span class="service-price">R$ 70</span>
+              <a href="https://wa.me/5521980089047" class="btn btn-outline btn-sm">Agendar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-media">
+            <img src="https://barberloungerio.lovable.app/assets/service-ozonio-DDW6C4S0.jpg" alt="Pigmentação de Barba">
+            <span class="service-tag">Estética</span>
+            <div class="service-play"><span>▶</span></div>
+          </div>
+          <div class="service-body">
+            <h4>Pigmentação de Barba</h4>
+            <p>Uniformiza falhas e realça o desenho da barba com técnica precisa e natural.</p>
+            <div class="service-footer">
+              <span class="service-price">R$ 80</span>
+              <a href="https://wa.me/5521980089047" class="btn btn-outline btn-sm">Agendar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-media">
+            <img src="https://barberloungerio.lovable.app/assets/service-corte-XqhyKym8.jpg" alt="Design de Sobrancelha">
+            <span class="service-tag">Detalhe</span>
+            <div class="service-play"><span>▶</span></div>
+          </div>
+          <div class="service-body">
+            <h4>Design de Sobrancelha</h4>
+            <p>Alinhamento preciso que finaliza o visual com harmonia e naturalidade.</p>
+            <div class="service-footer">
+              <span class="service-price">R$ 35</span>
+              <a href="https://wa.me/5521980089047" class="btn btn-outline btn-sm">Agendar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-media">
+            <img src="https://barberloungerio.lovable.app/assets/spa-CR6YyMKq.jpg" alt="The Up Spa Express">
+            <span class="service-tag">The Up Spa</span>
+            <div class="service-play"><span>▶</span></div>
+          </div>
+          <div class="service-body">
+            <h4>Day Spa Express</h4>
+            <p>Massagem crânio-facial e liberação de tensões — um respiro no 1º andar do espaço.</p>
+            <div class="service-footer">
+              <span class="service-price">R$ 120</span>
+              <a href="https://wa.me/5521980089047" class="btn btn-outline btn-sm">Agendar</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Adicione novos serviços duplicando o bloco .service-card acima — o grid se ajusta automaticamente -->
+
+      </div>
+
+      <p class="services-note">* Valores de referência — confirme o valor exato ao agendar via WhatsApp. Grid escalável: novos serviços podem ser adicionados livremente sem quebrar o layout.</p>
+    </div>
+  </section>
+
+  <!-- LUXURY THRIFT STORE (CURADORIA INFINITA) -->
+  <section class="thrift section-pad" id="thrift">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Luxury Thrift Store</span>
+        <h2>Curadoria consciente</h2>
+        <p>Peças que unem história e design. Uma seleção rigorosa de vestuário onde a alfaiataria impecável e a sustentabilidade encontram exclusividade.</p>
+      </div>
+
+      <!-- Carrossel horizontal fluido: adicione novos .thrift-card livremente -->
+      <div class="thrift-scroller" id="thriftScroller">
+
+        <div class="thrift-card">
+          <div class="thrift-media">
+            <img src="https://barberloungerio.lovable.app/assets/thrift-store-DLyeqId0.jpg" alt="Curadoria Luxury Thrift Store" style="object-position:center 20%;">
+            <span class="thrift-brand">Curadoria</span>
+          </div>
+          <div class="thrift-body">
+            <h4>Seleção da Semana</h4>
+            <p>Peças escolhidas a dedo, com foco em corte, tecido e origem de grife.</p>
+            <div class="thrift-footer">
+              <span class="thrift-price">Sob Consulta</span>
+              <a href="https://wa.me/5521980089047" class="btn btn-outline btn-sm">Consultar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="thrift-card">
+          <div class="thrift-media">
+            <img src="https://barberloungerio.lovable.app/assets/thrift-store-DLyeqId0.jpg" alt="Camisaria Premium" style="object-position:center 60%;">
+            <span class="thrift-brand">Camisaria</span>
+          </div>
+          <div class="thrift-body">
+            <h4>Camisaria Premium</h4>
+            <p>Camisas de corte impecável e marcas de prestígio global, prontas para o guarda-roupa moderno.</p>
+            <div class="thrift-footer">
+              <span class="thrift-price">Sob Consulta</span>
+              <a href="https://wa.me/5521980089047" class="btn btn-outline btn-sm">Consultar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="thrift-card">
+          <div class="thrift-media placeholder">
+            <span class="glyph">A</span>
+            <span class="thrift-brand">Alfaiataria</span>
+          </div>
+          <div class="thrift-body">
+            <h4>Alfaiataria</h4>
+            <p>Blazers e peças que unem sofisticação, durabilidade e design atemporal.</p>
+            <div class="thrift-footer">
+              <span class="thrift-price">Sob Consulta</span>
+              <a href="https://wa.me/5521980089047" class="btn btn-outline btn-sm">Consultar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="thrift-card">
+          <div class="thrift-media placeholder">
+            <span class="glyph">M</span>
+            <span class="thrift-brand">Moda Consciente</span>
+          </div>
+          <div class="thrift-body">
+            <h4>Moda Consciente</h4>
+            <p>Peças autênticas de alto luxo com foco em consumo inteligente e circularidade.</p>
+            <div class="thrift-footer">
+              <span class="thrift-price">Sob Consulta</span>
+              <a href="https://wa.me/5521980089047" class="btn btn-outline btn-sm">Consultar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="thrift-card">
+          <div class="thrift-media">
+            <img src="https://barberloungerio.lovable.app/assets/thrift-store-DLyeqId0.jpg" alt="Acessórios de Grife" style="object-position:center 90%;">
+            <span class="thrift-brand">Acessórios</span>
+          </div>
+          <div class="thrift-body">
+            <h4>Acessórios de Grife</h4>
+            <p>Cintos, relógios e itens de assinatura para compor o look com exclusividade.</p>
+            <div class="thrift-footer">
+              <span class="thrift-price">Sob Consulta</span>
+              <a href="https://wa.me/5521980089047" class="btn btn-outline btn-sm">Consultar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="thrift-card">
+          <div class="thrift-media placeholder">
+            <span class="glyph">C</span>
+            <span class="thrift-brand">Consultoria</span>
+          </div>
+          <div class="thrift-body">
+            <h4>Consultoria Exclusiva</h4>
+            <p>Atendimento personalizado para compor o seu guarda-roupa com curadoria dedicada.</p>
+            <div class="thrift-footer">
+              <span class="thrift-price">Sob Consulta</span>
+              <a href="https://wa.me/5521980089047" class="btn btn-outline btn-sm">Consultar</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Adicione novas peças duplicando o bloco .thrift-card — a rolagem horizontal se ajusta automaticamente -->
+
+      </div>
+
+      <div class="thrift-controls">
+        <button id="thriftPrev" aria-label="Anterior">←</button>
+        <button id="thriftNext" aria-label="Próximo">→</button>
+      </div>
+
+      <p class="services-note">Prévia do catálogo · loja completa em breve. Novas fotos, descrições e peças podem ser adicionadas livremente ao carrossel.</p>
+    </div>
+  </section>
+
+  <!-- FEED DO INSTAGRAM -->
+  <section class="instagram section-pad" id="instagram">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Barber Lounge no seu Feed</span>
+        <h2>Barber Lounge em movimento</h2>
+        <p>Acompanhe nossa curadoria diária de estilos, cortes e conteúdo. Siga-nos para conferir os resultados em primeira mão.</p>
+      </div>
+
+      <div class="insta-grid">
+        <a class="insta-item" href="https://instagram.com/barberlounge.rio" target="_blank" rel="noopener">
+          <img src="https://barberloungerio.lovable.app/assets/hero-barbershop-DYPPFSAR.jpg" alt="Barber Lounge Rio — publicação 1">
+          <div class="insta-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 3.3.15 4.8 1.7 4.96 4.96.06 1.3.07 1.6.07 4.77s-.01 3.47-.07 4.77c-.15 3.25-1.65 4.8-4.96 4.96-1.3.06-1.6.07-4.9.07s-3.6-.01-4.9-.07c-3.32-.15-4.8-1.71-4.96-4.96C2.07 15.4 2.06 15.1 2.06 12s.01-3.47.07-4.77C2.28 3.97 3.77 2.42 7.1 2.27 8.4 2.21 8.8 2.2 12 2.2zM12 0C8.7 0 8.3.01 7 .07 2.6.27.27 2.6.07 7 .01 8.3 0 8.7 0 12s.01 3.7.07 5c.2 4.4 2.53 6.73 6.93 6.93 1.3.06 1.7.07 5 .07s3.7-.01 5-.07c4.4-.2 6.73-2.53 6.93-6.93.06-1.3.07-1.7.07-5s-.01-3.7-.07-5C23.73 2.6 21.4.27 17 .07 15.7.01 15.3 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.4-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg><span>Ver post</span></div>
+        </a>
+        <a class="insta-item" href="https://instagram.com/barberlounge.rio" target="_blank" rel="noopener">
+          <img src="https://barberloungerio.lovable.app/assets/service-corte-XqhyKym8.jpg" alt="Barber Lounge Rio — publicação 2">
+          <div class="insta-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 3.3.15 4.8 1.7 4.96 4.96.06 1.3.07 1.6.07 4.77s-.01 3.47-.07 4.77c-.15 3.25-1.65 4.8-4.96 4.96-1.3.06-1.6.07-4.9.07s-3.6-.01-4.9-.07c-3.32-.15-4.8-1.71-4.96-4.96C2.07 15.4 2.06 15.1 2.06 12s.01-3.47.07-4.77C2.28 3.97 3.77 2.42 7.1 2.27 8.4 2.21 8.8 2.2 12 2.2zM12 0C8.7 0 8.3.01 7 .07 2.6.27.27 2.6.07 7 .01 8.3 0 8.7 0 12s.01 3.7.07 5c.2 4.4 2.53 6.73 6.93 6.93 1.3.06 1.7.07 5 .07s3.7-.01 5-.07c4.4-.2 6.73-2.53 6.93-6.93.06-1.3.07-1.7.07-5s-.01-3.7-.07-5C23.73 2.6 21.4.27 17 .07 15.7.01 15.3 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.4-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg><span>Ver post</span></div>
+        </a>
+        <a class="insta-item" href="https://instagram.com/barberlounge.rio" target="_blank" rel="noopener">
+          <img src="https://barberloungerio.lovable.app/assets/service-ozonio-DDW6C4S0.jpg" alt="Barber Lounge Rio — publicação 3">
+          <div class="insta-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 3.3.15 4.8 1.7 4.96 4.96.06 1.3.07 1.6.07 4.77s-.01 3.47-.07 4.77c-.15 3.25-1.65 4.8-4.96 4.96-1.3.06-1.6.07-4.9.07s-3.6-.01-4.9-.07c-3.32-.15-4.8-1.71-4.96-4.96C2.07 15.4 2.06 15.1 2.06 12s.01-3.47.07-4.77C2.28 3.97 3.77 2.42 7.1 2.27 8.4 2.21 8.8 2.2 12 2.2zM12 0C8.7 0 8.3.01 7 .07 2.6.27.27 2.6.07 7 .01 8.3 0 8.7 0 12s.01 3.7.07 5c.2 4.4 2.53 6.73 6.93 6.93 1.3.06 1.7.07 5 .07s3.7-.01 5-.07c4.4-.2 6.73-2.53 6.93-6.93.06-1.3.07-1.7.07-5s-.01-3.7-.07-5C23.73 2.6 21.4.27 17 .07 15.7.01 15.3 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.4-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg><span>Ver post</span></div>
+        </a>
+        <a class="insta-item" href="https://instagram.com/barberlounge.rio" target="_blank" rel="noopener">
+          <img src="https://barberloungerio.lovable.app/assets/service-lavagem-CtPVlwFO.jpg" alt="Barber Lounge Rio — publicação 4">
+          <div class="insta-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 3.3.15 4.8 1.7 4.96 4.96.06 1.3.07 1.6.07 4.77s-.01 3.47-.07 4.77c-.15 3.25-1.65 4.8-4.96 4.96-1.3.06-1.6.07-4.9.07s-3.6-.01-4.9-.07c-3.32-.15-4.8-1.71-4.96-4.96C2.07 15.4 2.06 15.1 2.06 12s.01-3.47.07-4.77C2.28 3.97 3.77 2.42 7.1 2.27 8.4 2.21 8.8 2.2 12 2.2zM12 0C8.7 0 8.3.01 7 .07 2.6.27.27 2.6.07 7 .01 8.3 0 8.7 0 12s.01 3.7.07 5c.2 4.4 2.53 6.73 6.93 6.93 1.3.06 1.7.07 5 .07s3.7-.01 5-.07c4.4-.2 6.73-2.53 6.93-6.93.06-1.3.07-1.7.07-5s-.01-3.7-.07-5C23.73 2.6 21.4.27 17 .07 15.7.01 15.3 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.4-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg><span>Ver post</span></div>
+        </a>
+        <a class="insta-item" href="https://instagram.com/barberlounge.rio" target="_blank" rel="noopener">
+          <img src="https://barberloungerio.lovable.app/assets/thrift-store-DLyeqId0.jpg" alt="Barber Lounge Rio — publicação 5">
+          <div class="insta-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 3.3.15 4.8 1.7 4.96 4.96.06 1.3.07 1.6.07 4.77s-.01 3.47-.07 4.77c-.15 3.25-1.65 4.8-4.96 4.96-1.3.06-1.6.07-4.9.07s-3.6-.01-4.9-.07c-3.32-.15-4.8-1.71-4.96-4.96C2.07 15.4 2.06 15.1 2.06 12s.01-3.47.07-4.77C2.28 3.97 3.77 2.42 7.1 2.27 8.4 2.21 8.8 2.2 12 2.2zM12 0C8.7 0 8.3.01 7 .07 2.6.27.27 2.6.07 7 .01 8.3 0 8.7 0 12s.01 3.7.07 5c.2 4.4 2.53 6.73 6.93 6.93 1.3.06 1.7.07 5 .07s3.7-.01 5-.07c4.4-.2 6.73-2.53 6.93-6.93.06-1.3.07-1.7.07-5s-.01-3.7-.07-5C23.73 2.6 21.4.27 17 .07 15.7.01 15.3 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.4-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg><span>Ver post</span></div>
+        </a>
+        <a class="insta-item" href="https://instagram.com/barberlounge.rio" target="_blank" rel="noopener">
+          <img src="https://barberloungerio.lovable.app/assets/spa-CR6YyMKq.jpg" alt="Barber Lounge Rio — publicação 6">
+          <div class="insta-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 3.3.15 4.8 1.7 4.96 4.96.06 1.3.07 1.6.07 4.77s-.01 3.47-.07 4.77c-.15 3.25-1.65 4.8-4.96 4.96-1.3.06-1.6.07-4.9.07s-3.6-.01-4.9-.07c-3.32-.15-4.8-1.71-4.96-4.96C2.07 15.4 2.06 15.1 2.06 12s.01-3.47.07-4.77C2.28 3.97 3.77 2.42 7.1 2.27 8.4 2.21 8.8 2.2 12 2.2zM12 0C8.7 0 8.3.01 7 .07 2.6.27.27 2.6.07 7 .01 8.3 0 8.7 0 12s.01 3.7.07 5c.2 4.4 2.53 6.73 6.93 6.93 1.3.06 1.7.07 5 .07s3.7-.01 5-.07c4.4-.2 6.73-2.53 6.93-6.93.06-1.3.07-1.7.07-5s-.01-3.7-.07-5C23.73 2.6 21.4.27 17 .07 15.7.01 15.3 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.4-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg><span>Ver post</span></div>
+        </a>
+      </div>
+
+      <div class="section-cta">
+        <a href="https://instagram.com/barberlounge.rio" target="_blank" rel="noopener" class="btn btn-outline">Seguir @barberlounge.rio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVALIAÇÕES GOOGLE MAPS -->
+  <section class="reviews section-pad" id="avaliacoes">
+    <div class="wrap">
+      <div class="reviews-top">
+        <div class="section-head" style="margin-bottom:0;">
+          <span class="eyebrow">Avaliações</span>
+          <h2>O que dizem no Google</h2>
+          <p>Comentários de clientes reais, direto do nosso perfil no Google Maps.</p>
+        </div>
+        <div class="rating-card">
+          <span class="score">4,9</span>
+          <div class="details">
+            <span class="stars">★★★★★</span>
+            <span class="count">Baseado em avaliações no Google</span>
+            <span class="google-badge">
+              <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.9 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 8 3l6-6C34.5 5.4 29.6 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21 21-9.4 21-21c0-1.4-.1-2.5-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 15.5 18.9 12 24 12c3.1 0 5.8 1.1 8 3l6-6C34.5 5.4 29.6 3 24 3 16.3 3 9.6 7.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 45c5.5 0 10.5-2.1 14.3-5.6l-6.6-5.6C29.6 35.6 26.9 36.5 24 36.5c-5.3 0-9.7-3.4-11.3-8.1l-6.5 5C9.4 40.5 16.1 45 24 45z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.3 4.2-4.2 5.5l6.6 5.6C39.8 37.4 43 31.6 43 24c0-1.4-.1-2.5-.4-3.5z"/></svg>
+              Google
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews-track">
+        <div class="review-card">
+          <div class="review-head">
+            <span class="review-avatar">RM</span>
+            <div><div class="review-name">Rafael M.</div><div class="review-date">há 2 semanas</div></div>
+          </div>
+          <span class="stars">★★★★★</span>
+          <p class="review-text">Ambiente impecável e atendimento no detalhe. A barboterapia com ozônio surpreende — saí de lá renovado.</p>
+          <span class="review-source">Avaliado no Google</span>
+        </div>
+        <div class="review-card">
+          <div class="review-head">
+            <span class="review-avatar">TC</span>
+            <div><div class="review-name">Thiago C.</div><div class="review-date">há 1 mês</div></div>
+          </div>
+          <span class="stars">★★★★★</span>
+          <p class="review-text">Achei uma jaqueta incrível no brechó depois do corte. A ideia de unir moda e barbearia funciona muito bem.</p>
+          <span class="review-source">Avaliado no Google</span>
+        </div>
+        <div class="review-card">
+          <div class="review-head">
+            <span class="review-avatar">GA</span>
+            <div><div class="review-name">Gustavo A.</div><div class="review-date">há 1 mês</div></div>
+          </div>
+          <span class="stars">★★★★★</span>
+          <p class="review-text">Localização ótima no Centro, equipe atenciosa e corte preciso. Virou parada fixa antes do trabalho.</p>
+          <span class="review-source">Avaliado no Google</span>
+        </div>
+      </div>
+
+      <p class="reviews-note">* Avaliações ilustrativas — substitua pelos comentários reais do seu perfil Google Meu Negócio (ou conecte a API do Google Places para exibi-los automaticamente).</p>
+
+      <div class="reviews-cta">
+        <a href="https://www.google.com/maps?q=Barber+Lounge+Rio,+Avenida+Churchill,+Centro,+Rio+de+Janeiro,+RJ,+20020-050" target="_blank" rel="noopener" class="btn btn-outline">Ver todas as avaliações no Google →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <div class="wrap">
+      <span class="eyebrow">Reserve a sua exclusividade</span>
+      <h2>Seu horário, sua peça, seu estilo.</h2>
+      <p>Fale com a nossa equipe pelo WhatsApp e garanta atendimento na barbearia, no Up Spa ou acesso antecipado às novas peças do brechó.</p>
+      <a href="https://wa.me/5521980089047" class="btn btn-gold">Agendar pelo WhatsApp</a>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER / CONTATO -->
+<footer id="contato">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#top" class="logo">
+          <img src="https://barberloungerio.lovable.app/__l5e/assets-v1/b7947c7d-fabf-4480-ab24-10be1a227fb7/barber-lounge-logo.png" alt="Barber Lounge Rio">
+          <span class="logo-type"><strong>Barber Lounge</strong><span>Rio · Centro</span></span>
+        </a>
+        <p>Autenticidade, luxo e atitude em um único lugar. Barbearia de alto padrão, The Up Spa e curadoria de moda circular no Centro do Rio de Janeiro.</p>
+        <div class="footer-socials">
+          <a href="https://instagram.com/barberlounge.rio" aria-label="Instagram">IG</a>
+          <a href="https://wa.me/5521980089047" aria-label="WhatsApp">WA</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Endereço & Horário</h5>
+        <p><strong>Av. Churchill, loja 10 C</strong><br>Centro — Rio de Janeiro, RJ</p>
+        <p>Segunda a Sexta · 06:30 às 15:00<br>Sábado e Domingo · Fechado</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contato Rápido</h5>
+        <a href="https://wa.me/5521980089047">(21) 98008-9047 — WhatsApp</a>
+        <a href="https://instagram.com/barberlounge.rio">@barberlounge.rio</a>
+        <a href="#servicos">Ver serviços & preços</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="map-block">
+    <iframe
+      src="https://www.google.com/maps?q=Avenida%20Churchill%2C%20Centro%2C%20Rio%20de%20Janeiro%2C%20RJ%2C%2020020-050&output=embed"
+      loading="lazy" title="Localização Barber Lounge Rio"></iframe>
+  </div>
+
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>© 2026 Barber Lounge Rio · Centro do Rio de Janeiro</span>
+      <a href="https://wa.me/5521980089047">Falar no WhatsApp →</a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5521980089047" class="wa-float" aria-label="Agendar pelo WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.699 4.607 1.902 6.472L4 29l7.72-1.867A11.94 11.94 0 0 0 16.001 27C22.629 27 28 21.627 28 15S22.629 3 16.001 3zm6.994 17.02c-.294.828-1.457 1.516-2.386 1.71-.634.13-1.462.234-4.25-.914-3.567-1.47-5.86-5.09-6.038-5.327-.177-.237-1.447-1.927-1.447-3.676 0-1.749.917-2.61 1.242-2.966.325-.355.71-.443.947-.443.237 0 .474.002.68.012.218.01.51-.083.799.61.294.71 1 2.454 1.088 2.633.089.178.148.386.03.622-.119.237-.178.385-.354.593-.178.207-.373.463-.533.622-.178.178-.363.37-.156.727.207.355.918 1.514 1.97 2.452 1.353 1.207 2.494 1.581 2.85 1.759.355.178.563.148.77-.09.207-.237.888-1.034 1.125-1.39.237-.355.474-.296.799-.178.325.119 2.062.973 2.416 1.15.355.178.593.267.68.415.089.148.089.858-.205 1.686z"/></svg>
+</a>
+
+<script>
+  // sticky header contrast
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header.style.background = window.scrollY > 40 ? 'rgba(0,0,0,0.9)' : 'rgba(0,0,0,0.6)';
+  });
+
+  // mobile nav toggle
+  const burger = document.getElementById('burgerBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  burger.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
+  }));
+
+  // thrift store carousel controls
+  const scroller = document.getElementById('thriftScroller');
+  const prevBtn = document.getElementById('thriftPrev');
+  const nextBtn = document.getElementById('thriftNext');
+  if (scroller && prevBtn && nextBtn) {
+    const scrollAmount = () => scroller.querySelector('.thrift-card')?.offsetWidth + 22 || 300;
+    prevBtn.addEventListener('click', () => scroller.scrollBy({ left: -scrollAmount(), behavior: 'smooth' }));
+    nextBtn.addEventListener('click', () => scroller.scrollBy({ left: scrollAmount(), behavior: 'smooth' }));
+  }
+</script>
+
+</body>
+</html>

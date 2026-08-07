@@ -1,12 +1,16 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content Manager</title>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-</head>
-<body>
-  <script src="https://unpkg.com/netlify-cms@^2.10.190/dist/netlify-cms.js"></script>
-</body>
-</html>
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "images"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    fields:
+      - {name: "title", label: "Title", widget: "string"}
+      - {name: "date", label: "Date", widget: "datetime"}
+      - {name: "body", label: "Body", widget: "markdown"}

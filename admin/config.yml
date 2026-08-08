@@ -1,4 +1,3 @@
-
 backend:
   name: github
   repo: barberloungerio/barberloungerio.com.br
@@ -51,3 +50,4 @@ collections:
           - { label: "WhatsApp", name: "whatsapp", widget: "string" }
           - { label: "Horário de Funcionamento", name: "hours", widget: "string" }
           - { label: "Endereço", name: "address", widget: "string" }
+

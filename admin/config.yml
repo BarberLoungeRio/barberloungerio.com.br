@@ -1,9 +1,6 @@
 backend:
-  name: github
-  repo: barberloungerio/barberloungerio.com.br
+  name: git-gateway
   branch: main
-  base_url: https://api.decapcms.org
-  site_id: barberloungerio.com.br
 
 media_folder: "public/images"
 public_folder: "/images"
@@ -14,5 +11,5 @@ collections:
     folder: "content/blog"
     create: true
     fields:
-      - {name: "title", label: "Título", widget: "string"}
-      - {name: "body", label: "Corpo", widget: "markdown"}
+      - {name: "title", label: "Title", widget: "string"}
+      - {name: "body", label: "Body", widget: "markdown"}

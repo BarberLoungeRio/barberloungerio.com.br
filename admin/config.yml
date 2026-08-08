@@ -1,15 +1,53 @@
+
 backend:
-  name: git-gateway
+  name: github
+  repo: barberloungerio/barberloungerio.com.br
   branch: main
 
-media_folder: "public/images"
-public_folder: "/images"
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
 
 collections:
   - name: "blog"
     label: "Blog"
+    label_singular: "Post"
     folder: "content/blog"
     create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {name: "title", label: "Title", widget: "string"}
-      - {name: "body", label: "Body", widget: "markdown"}
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime" }
+      - { label: "Capa", name: "cover", widget: "image", required: false }
+      - { label: "Resumo", name: "excerpt", widget: "text", required: false }
+      - { label: "Conteúdo", name: "body", widget: "markdown" }
+      - { label: "Publicado", name: "draft", widget: "boolean", default: false }
+
+  - name: "thrift"
+    label: "Luxury Thrift Store — Peças"
+    label_singular: "Peça"
+    folder: "content/thrift"
+    create: true
+    slug: "lot-{{fields.lot_number}}"
+    media_folder: "/public/images/thrift"
+    public_folder: "/images/thrift"
+    fields:
+      - { label: "Número do Lote (Consignment Lot #)", name: "lot_number", widget: "string" }
+      - { label: "Nome da Peça", name: "title", widget: "string" }
+      - { label: "Marca", name: "brand", widget: "string", required: false }
+      - { label: "Categoria", name: "category", widget: "select", options: ["Roupas", "Calçados", "Acessórios", "Bolsas", "Relógios", "Outros"] }
+      - { label: "Preço (R$)", name: "price", widget: "number", value_type: "float" }
+      - { label: "Condição", name: "condition", widget: "select", options: ["Novo com etiqueta", "Seminovo", "Usado - excelente estado", "Usado - bom estado"] }
+      - { label: "Descrição", name: "description", widget: "text", required: false }
+      - { label: "Fotos", name: "images", widget: "list", field: { label: "Foto", name: "image", widget: "image" } }
+      - { label: "Disponível", name: "available", widget: "boolean", default: true }
+
+  - name: "settings"
+    label: "Configurações Gerais"
+    files:
+      - name: "general"
+        label: "Dados do Negócio"
+        file: "content/settings/general.yml"
+        fields:
+          - { label: "WhatsApp", name: "whatsapp", widget: "string" }
+          - { label: "Horário de Funcionamento", name: "hours", widget: "string" }
+          - { label: "Endereço", name: "address", widget: "string" }

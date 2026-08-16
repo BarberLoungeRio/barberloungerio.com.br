@@ -151,7 +151,7 @@ export default defineConfig({
 
   envDir: PROJECT_ROOT,
 
-  // Como o index.html está na raiz do seu repositório:
+  // Configurado para encontrar o index.html diretamente na raiz do repositório:
   root: PROJECT_ROOT,
 
   publicDir: path.resolve(PROJECT_ROOT, "public"),

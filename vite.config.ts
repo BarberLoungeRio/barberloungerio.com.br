@@ -39,7 +39,7 @@ function trimLogFile(logPath: string, maxSize: number) {
 
     fs.writeFileSync(logPath, keptLines.join("\n"), "utf-8");
   } catch {
-    // Ignora erros de limpeza dos logs.
+    // Ignora erros de limpeza de logs.
   }
 }
 
@@ -143,7 +143,7 @@ export default defineConfig({
 
   resolve: {
     alias: {
-      "@": path.resolve(PROJECT_ROOT, "client", "src"),
+      "@": path.resolve(PROJECT_ROOT, "src"),
       "@shared": path.resolve(PROJECT_ROOT, "shared"),
       "@assets": path.resolve(PROJECT_ROOT, "attached_assets"),
     },
@@ -151,12 +151,13 @@ export default defineConfig({
 
   envDir: PROJECT_ROOT,
 
-  root: path.resolve(PROJECT_ROOT, "client"),
+  // Como o index.html está na raiz do seu repositório:
+  root: PROJECT_ROOT,
 
-  publicDir: path.resolve(PROJECT_ROOT, "client", "public"),
+  publicDir: path.resolve(PROJECT_ROOT, "public"),
 
   build: {
-    outDir: path.resolve(PROJECT_ROOT, "dist", "public"),
+    outDir: path.resolve(PROJECT_ROOT, "dist/public"),
     emptyOutDir: true,
   },
 
